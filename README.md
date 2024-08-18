@@ -34,4 +34,7 @@ Please download checkpoints from
 
 ## Performance Evaluation 
 ![](https://github.com/shibaoshun/RepFormer/blob/0e2289d99eabae13d9fbffb19758190d5d3d9984/figs/results.png)
-![]()
+![](https://github.com/shibaoshun/RepFormer/blob/e4fb180ae9adec9043d0111399bf743d9db6809f/figs/visual.png)
+
+## Acknowledgements
+This code is built on [Uformer](https://github.com/ZhendongWang6/Uformer). We thank the authors for sharing their codes of Uformer.
