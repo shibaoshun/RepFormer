@@ -1,9 +1,8 @@
 `├──Train`   <br/>
-      ├──Test100 <br/>
-      ├──Rain100H <br/>
-      ├──Rain100L <br/>
-      ├──Test1200 <br/>
-      └──Test2800 <br/>
+      ├──Train_A <br/>
+      ├──Train_B <br/>
+      ├──Train_C <br/>
+      └──Train_D <br/>
 `├──Test`   <br/>
       `├──input`  <br/>
       `├──target`  <br/>
