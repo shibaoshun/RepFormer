@@ -52,25 +52,25 @@ def load_optim(optimizer, weights):
     # for p in optimizer.param_groups: lr = p['lr']
     # return lr
 def get_arch(opt):
-    from sd_fsas_net import SDNet
+    from rsen import RSENet
 
-    model_restoration =SDNet(dim=opt.TRAINING.DIM, bias=opt.TRAINING.BIAS)
+    model_restoration =RSENet(dim=opt.TRAINING.DIM, bias=opt.TRAINING.BIAS)
 
     return model_restoration
 
 def get_test(opt):
-    from sd_fsas_net_prompt1 import SDNet
-    model_restoration = SDNet(dim=opt.dim, bias=opt.bias)
+    from rsen import RSENet
+    model_restoration = RSENet(dim=opt.dim, bias=opt.bias)
     return model_restoration
 def get_arch1(opt):
-    from sd_stb_net import SD_STB_Net
+    from rsen import RSENet
 
-    model_restoration =SD_STB_Net(dim=opt.TRAINING.DIM, head_dim=opt.TRAINING.HEAD_DIM)
+    model_restoration =RSENet(dim=opt.TRAINING.DIM, head_dim=opt.TRAINING.HEAD_DIM)
 
     return model_restoration
 def get_test1(opt):
-    from sd_stb_net import SD_STB_Net
+    from rsen import RSENet
 
-    model_restoration =SD_STB_Net(dim=opt.dim, head_dim=opt.head_dim)
+    model_restoration =RSENet(dim=opt.dim, head_dim=opt.head_dim)
 
     return model_restoration
