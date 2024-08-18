@@ -19,15 +19,18 @@ cd pytorch-gradual-warmup-lr; python setup.py install; cd ..
 ```
 ## Training and Testing
 Training and Testing codes for RSEN, SAM and RepFormer are provided in their respective directories.
++ RSEN: Rain streak estimation network to estimate rain streak information.
++ SAM: Segment anything to estimate image edges.
++ RepFormer: Remove rain streaks using rain streaks and image edges.
 ## Dataset
 We train and test our RepFormer in Rain100L, Rain200L. The download links of datasets are provided.
-+ Rain100L: 200 training pairs and 100 testing pairs. Download from [Datasets](https://pan.baidu.com/s/16n5hKHkr2rKlz2kBlI5JSQ?pwd=wxdm)
-+ Rain200L: 1800 training pairs and 200 testing pairs. Download from [Datasets](https://pan.baidu.com/s/16n5hKHkr2rKlz2kBlI5JSQ?pwd=wxdm)
++ Rain100L: 200 training pairs and 100 testing pairs. Download from [Datasets](https://pan.baidu.com/s/16n5hKHkr2rKlz2kBlI5JSQ?pwd=wxdm).
++ Rain200L: 1800 training pairs and 200 testing pairs. Download from [Datasets](https://pan.baidu.com/s/16n5hKHkr2rKlz2kBlI5JSQ?pwd=wxdm).
 ## Pre-trained Models
 ### For RSEN
-Please download checkpoints from [RSEN](https://pan.baidu.com/s/1VyZRqqfCUSZm5zilCIlw9g?pwd=edij)
+Please download checkpoints from [RSEN](https://pan.baidu.com/s/1VyZRqqfCUSZm5zilCIlw9g?pwd=edij).
 ### For SAM
-Please download checkpoints  for the corresponding model type from [SAM](https://github.com/facebookresearch/segment-anything?tab=readme-ov-file#model-checkpoints)
+Please download checkpoints  for the corresponding model type from [SAM](https://github.com/facebookresearch/segment-anything?tab=readme-ov-file#model-checkpoints).
 ### For RepFormer
 Please download checkpoints from
 
