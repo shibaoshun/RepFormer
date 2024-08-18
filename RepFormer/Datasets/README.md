@@ -1,7 +1,8 @@
 `├──Train`   <br/>
-      `├──input`  <br/>
-      `├──target`  <br/>
-      `└──mask`  <br/>
+      `├──train_A`  <br/>
+      `├──train_B`  <br/>
+      `├──train_C`  <br/>
+      `└──train_D`  <br/>
 `├──Test`   <br/>
       `├──input`  <br/>
       `├──target`  <br/>
