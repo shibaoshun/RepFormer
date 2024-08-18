@@ -4,6 +4,7 @@
       ├──Train_C <br/>
       └──Train_D <br/>
 `├──Test`   <br/>
-      `├──input`  <br/>
-      `├──target`  <br/>
-      `└──mask`  <br/>
+      ├──Test_A <br/>
+      ├──Test_B <br/>
+      ├──Test_C <br/>
+      └──Test_D <br/>
