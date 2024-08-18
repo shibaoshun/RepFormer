@@ -133,9 +133,9 @@ class F_ext(nn.Module):
         return out
 
 
-class SDNet(nn.Module):
+class RSENet(nn.Module):
     def __init__(self, dim, bias):
-        super(SDNet, self).__init__()
+        super(RSENet, self).__init__()
         self.dim = dim
         self.F_ext_net = F_ext(in_nc=4, nf=64)
         self.Conv_0 = torch.nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1,  dilation=1, bias=True)
