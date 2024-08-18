@@ -1,4 +1,5 @@
 # Network architecture
+![](https://github.com/shibaoshun/RepFormer/blob/b2f1353e3b3600a34649f8c0c92c8f5807705665/figs/RSEN.png)
 # Training
 + Download the Datasets
 + Train the model with default arguments by running
