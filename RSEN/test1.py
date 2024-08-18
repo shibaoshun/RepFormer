@@ -18,8 +18,6 @@ import torch.nn.functional as F
 import utils
 
 from data_RGB import get_test_data
-#from DGUNet import DGUNet
-
 from binarization import Binarization
 from skimage import img_as_ubyte
 from pdb import set_trace as stx
@@ -31,19 +29,15 @@ parser.add_argument('--input_dir', default='./resultstishi/SDNet-train/', type=s
 parser.add_argument('--result_dir', default='./resultstishi/mask-train/', type=str, help='Directory for results')
 # parser.add_argument('--weights', default='./pretrained_models/model_best.pth', type=str, help='Path to weights')
 parser.add_argument('--gpus', default='1', type=str, help='CUDA_VISIBLE_DEVICES')
-
 parser.add_argument('--batchSize', type=int, default=1, help='testing input batch size')
-
-
-
 args = parser.parse_args()
 
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = args.gpus
 
-# model_restoration = DGUNet()
-#model_restoration = SDNet()
-model_restoration = MaskAwareNet()
+
+
+model_restoration = Binarization()
 #utils.load_checkpoint(model_restoration,args.weights)
 #print("===>Testing using weights: ",args.weights)
 model_restoration.cuda()
@@ -134,4 +128,4 @@ for dataset in datasets:
             mask = mask.permute(0, 2, 3, 1).cpu().detach()
             for batch in range(len(mask)):
                 restored_img = img_as_ubyte(mask[batch])
-                utils.save_img2((os.path.join(result_dir, filenames[batch]+'.png')), restored_img)## 进行生成DRCD所需的估计图像时，这里生成修改成三通道，在函数里改
+                utils.save_img2((os.path.join(result_dir, filenames[batch]+'.png')), restored_img)
