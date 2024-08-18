@@ -3,7 +3,7 @@ Baoshun Shi，Wei Ma，Shengnan Yan
 ## Abatract
 Recent deep learning-based single image deraining (SID) methods have achieved remarkable results, but they either utilize Transformer in rain streak and non-streak regions equally or work locally ignoring global information, suffering from incomplete restoration of fine details in rain streaks and global edges. To address this, we propose RepFormer, a novel rain streak and image edge prompting Transformer-based SID network, which focus on restoring contents in rain streaks and preserving image edges. Specifically, we elaborate a rain streak estimation network and leverage the segment anything model (SAM) to estimate rain streaks and image edges, respectively. We inject these high-frequency features into the Transformer architecture via a prompt embedding module, and propose a rain streak and image edge prompting Transformer, which utilizes the non-local information to restore the fine details in the rain streaks and preserve image edges. Comprehensive experiments on various representative datasets validate the superiority of our method.
 
-![image name](https://github.com/mawei-north/RepFormer/blob/7c32dc7e07c0647375459f8fc821417b57cacdb0/figss/RepFormer.png)
+![image name](https://github.com/shibaoshun/RepFormer/blob/4ceb46455db4b24fa1f99075d01ca9832735e31e/figs/RepFormer.png))
 ## Installation
 The model is built in PyTorch 1.10.0 and  trained with NVIDIA 2080Ti GPU.
 For installing, follow these intructions
