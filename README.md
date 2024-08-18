@@ -31,8 +31,7 @@ We train and test our RepFormer in Rain100L, Rain200L. The download links of dat
 Please download checkpoints from [RSEN](https://pan.baidu.com/s/1VyZRqqfCUSZm5zilCIlw9g?pwd=edij).
 ### For SAM
 Please download checkpoints  for the corresponding model type from [SAM](https://github.com/facebookresearch/segment-anything?tab=readme-ov-file#model-checkpoints).
-### For RepFormer
-Please download checkpoints from
+
 
 
 ## Performance Evaluation 
