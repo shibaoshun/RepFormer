@@ -33,5 +33,5 @@ Please download checkpoints from
 
 
 ## Performance Evaluation 
-![](https://github.com/mawei-north/RepFormer/blob/4709e59d3aafe69bee39395bb84781d8c51f6469/figss/results.png)
+![](https://github.com/shibaoshun/RepFormer/blob/0e2289d99eabae13d9fbffb19758190d5d3d9984/figs/results.png)
 ![]()
