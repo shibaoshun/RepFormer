@@ -1046,9 +1046,8 @@ class RepFormer(nn.Module):
 
     def forward(self, x, xma, xmb, mask=None):
         # Input  Projection
-        #xm = torch.cat((xma, xmb), dim=1)
+        
         xm = xma + xmb
-        # xm = xma
         xm = torch.clamp(xm, 0, 1)
         
         self.img_size = (x.shape[2], x.shape[3])
