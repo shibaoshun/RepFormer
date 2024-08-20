@@ -73,15 +73,7 @@ img_multiple_of = 8 * args.win_size
 # img_multiple_of = 4 * args.win_size
 with torch.no_grad():
     psnr_val_rgb = []
-    psnr_val_rgb2 = []
     ssim_val_rgb = []
-    rmse_val_rgb = []
-    psnr_val_s = []
-    ssim_val_s = []
-    psnr_val_ns = []
-    ssim_val_ns = []
-    rmse_val_s = []
-    rmse_val_ns = []
     for ii, data_test in enumerate(tqdm(test_loader), 0):
         rgb_gt = data_test[0].numpy().squeeze().transpose((1, 2, 0))
         rgb_noisy = data_test[1].cuda()
@@ -133,42 +125,17 @@ with torch.no_grad():
             bm = torch.where(mask == 0, torch.zeros_like(mask), torch.ones_like(mask))  #binarize mask
             bm = np.expand_dims(bm.cpu().numpy().squeeze(), axis=2)
 
-            # calculate SSIM in gray space
-            gray_restored = cv2.cvtColor(rgb_restored, cv2.COLOR_RGB2GRAY)
-            gray_gt = cv2.cvtColor(rgb_gt, cv2.COLOR_RGB2GRAY)
+            
+            # gray_restored = cv2.cvtColor(rgb_restored, cv2.COLOR_RGB2GRAY)
+            # gray_gt = cv2.cvtColor(rgb_gt, cv2.COLOR_RGB2GRAY)
             ssim_val_rgb.append(ssim_loss(rgb_restored, rgb_gt, multichannel=True,channel_axis=2))
-            # ssim_val_ns.append(ssim_loss(gray_restored * (1 - bm.squeeze()), gray_gt * (1 - bm.squeeze()), channel_axis=None))
-            # ssim_val_s.append(ssim_loss(gray_restored * bm.squeeze(), gray_gt * bm.squeeze(), channel_axis=None))
-
             psnr_val_rgb.append(psnr_loss(rgb_restored, rgb_gt))
-            # psnr_val_rgb2.append(utils.calc_psnr(rgb_restored, rgb_gt))
-            # psnr_val_ns.append(psnr_loss(rgb_restored * (1 - bm), rgb_gt * (1 - bm)))
-            # psnr_val_s.append(psnr_loss(rgb_restored * bm, rgb_gt * bm))
-
-            # calculate the RMSE in LAB space
-            rmse_temp = np.abs(cv2.cvtColor(rgb_restored, cv2.COLOR_RGB2LAB) - cv2.cvtColor(rgb_gt, cv2.COLOR_RGB2LAB)).mean() * 3
-            rmse_val_rgb.append(rmse_temp)
-            # rmse_temp_s = np.abs(cv2.cvtColor(rgb_restored * bm, cv2.COLOR_RGB2LAB) - cv2.cvtColor(rgb_gt * bm, cv2.COLOR_RGB2LAB)).sum() / bm.sum()
-            # rmse_temp_ns = np.abs(cv2.cvtColor(rgb_restored * (1-bm), cv2.COLOR_RGB2LAB) - cv2.cvtColor(rgb_gt * (1-bm),
-            #                                                                                        cv2.COLOR_RGB2LAB)).sum() / (1-bm).sum()
-            # rmse_val_s.append(rmse_temp_s)
-            # rmse_val_ns.append(rmse_temp_ns)
-
 
         if args.save_images:
             utils.save_img(rgb_restored*255.0, os.path.join(args.result_dir, filenames[0]))
             # utils.save_img(x*255.0, os.path.join(args.result_dir, filenames[0]))
 if args.cal_metrics:
     psnr_val_rgb = sum(psnr_val_rgb)/len(test_dataset)
-    # psnr_val_rgb2 = sum(psnr_val_rgb2) / len(test_dataset)
     ssim_val_rgb = sum(ssim_val_rgb)/len(test_dataset)
-    # psnr_val_s = sum(psnr_val_s)/len(test_dataset)
-    # ssim_val_s = sum(ssim_val_s)/len(test_dataset)
-    # psnr_val_ns = sum(psnr_val_ns)/len(test_dataset)
-    ssim_val_ns = sum(ssim_val_ns)/len(test_dataset)
-    rmse_val_rgb = sum(rmse_val_rgb) / len(test_dataset)
-    # rmse_val_s = sum(rmse_val_s) / len(test_dataset)
-    # rmse_val_ns = sum(rmse_val_ns) / len(test_dataset)
-    print("PSNR: %f, SSIM: %f, RMSE: %f " %(psnr_val_rgb, ssim_val_rgb, rmse_val_rgb))
-    # print("SPSNR: %f, SSSIM: %f, SRMSE: %f " %(psnr_val_s, ssim_val_s, rmse_val_s))
-    # print("NSPSNR: %f, NSSSIM: %f, NSRMSE: %f " %(psnr_val_ns, ssim_val_ns, rmse_val_ns))
+
+    print("PSNR: %f, SSIM: %f" %(psnr_val_rgb, ssim_val_rgb))
